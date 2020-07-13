@@ -1,0 +1,19 @@
+==== Database Notes:
+
+To see info (and row count):
+heroku pg:info
+
+To continously watch:
+watch heroku pg:info
+
+To see if psql is installed:
+which psql
+
+To establish a psql session with remote database:
+heroku pg:psql
+
+To pull data to local database:
+heroku pg:pull HEROKU_POSTGRESQL_MAGENTA mylocaldb --app sushi
+
+To push data to a remote database:
+heroku pg:push mylocaldb HEROKU_POSTGRESQL_MAGENTA --app sushi
