@@ -1,23 +1,25 @@
 package io.greenerpastures.rest.bestopportunity.service;
 
-import io.greenerpastures.rest.bestopportunity.model.OpportunityResults;
 import io.greenerpastures.rest.bestopportunity.model.OpportunityInputs;
-import io.greenerpastures.rest.bestopportunity.model.StateCostOfLiving;
-import io.greenerpastures.rest.bestopportunity.repostitory.StateCostOfLivingRepository;
+import io.greenerpastures.rest.bestopportunity.model.OpportunityResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Optional;
 
+/**
+ * @Author: Skip Sorenson
+ * @Date: July 12 2020
+ * The BestOpportunityService combines the taxes owed service and the cost of living service together.
+ *
+ * A cache has been implemented.  Response times go from 180 ms to 5 ms utilizing the cache.
+ */
 @Component
 public class BestOpportunityService {
 
-    private CostOfLivingService costOfLivingService;
+    private final CostOfLivingService costOfLivingService;
 
-    private HashMap<OpportunityInputs, OpportunityResults> cache;
-
+    private final HashMap<OpportunityInputs, OpportunityResults> cache;
 
     @Autowired
     public BestOpportunityService(CostOfLivingService costOfLivingService) {
@@ -37,10 +39,10 @@ public class BestOpportunityService {
 
         // First calculate taxes owed,
         TaxesOwedService taxesOwedService = new TaxesOwedService();
-        results.setAnnualTaxesOwed(taxesOwedService.calculateAnnualTaxesOwed(inputs));
+        results.setAnnual(taxesOwedService.calculateAnnualTaxesOwed(inputs));
 
         // Second calculate Cost of Living
-        results.setStateCostOfLiving(costOfLivingService.calculateCostOfLivingBasedOnStateIntitials(inputs.getState()));
+        results.setStateCostOfLiving(costOfLivingService.calculate(inputs.getState()));
         addToCache(inputs, results);
 
         return results;

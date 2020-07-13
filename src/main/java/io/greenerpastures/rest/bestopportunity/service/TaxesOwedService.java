@@ -1,6 +1,6 @@
 package io.greenerpastures.rest.bestopportunity.service;
 
-import io.greenerpastures.rest.bestopportunity.model.AnnualTaxesOwed;
+import io.greenerpastures.rest.bestopportunity.model.Annual;
 import io.greenerpastures.rest.bestopportunity.model.OpportunityInputs;
 import io.greenerpastures.rest.bestopportunity.model.taxeeResponse.TaxeeResponse;
 import org.springframework.http.*;
@@ -15,7 +15,8 @@ public class TaxesOwedService {
 
     private HashMap<String, String> localCache;
 
-    public AnnualTaxesOwed calculateAnnualTaxesOwed(OpportunityInputs inputs) {
+    public Annual calculateAnnualTaxesOwed(OpportunityInputs inputs) {
+        // TODO pull these properties from a config file
         String uri = "https://taxee.io/api/v2/calculate/2020";
         String auth = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUElfS0VZX01BTkFHRVIiLCJodHRwOi8vdGF4ZWUuaW8vdXNlcl9pZCI6IjVlMGNiMzE1MGM1ZDE5MjkxMWQzNDg1MiIsImh0dHA6Ly90YXhlZS5pby9zY29wZXMiOlsiYXBpIl0sImlhdCI6MTU3Nzg5MDU4MX0.-gjctbfrZpR0Hw3C-CavZNEGAl2-890FJSG5TSml3i0";
 
@@ -25,20 +26,25 @@ public class TaxesOwedService {
         httpHeaders.setAccessControlAllowOrigin("*");
         httpHeaders.set("Authorization", auth);
 
-        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.add("state", inputs.getState());
-        map.add("filing_status", inputs.getFilingStatus());
-        map.add("pay_rate", inputs.getSalary().toString());
+        MultiValueMap<String, String> form_inputs = inputsToMultiValueMap(inputs);
 
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, httpHeaders);
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(form_inputs, httpHeaders);
 
         ResponseEntity<TaxeeResponse> response = restTemplate.exchange(
                 uri,
                 HttpMethod.POST,
                 request,
                 TaxeeResponse.class);
-
         return response.getBody().getTaxesOwed();
+    }
+
+    static MultiValueMap<String, String> inputsToMultiValueMap(OpportunityInputs inputs) {
+        System.out.println(inputs);
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+        map.add("state", inputs.getState());
+        map.add("filing_status", inputs.getFiling_status());
+        map.add("pay_rate", inputs.getPay_rate().toString());
+        return map;
     }
 
 

@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class OpportunityResults {
 
     private OpportunityInputs inputs;
-    private AnnualTaxesOwed annualTaxesOwed;
+    private Annual annual;
     private StateCostOfLiving stateCostOfLiving;
 
     public OpportunityResults(OpportunityInputs inputs) {
@@ -18,7 +18,7 @@ public class OpportunityResults {
     }
 
     public BigDecimal getAfterTaxPay() {
-        return this.inputs.getSalary().subtract(annualTaxesOwed.getTotalTax());
+        return this.inputs.getPay_rate().subtract(annual.getTotalTax());
     }
 
     public BigDecimal getAdjustedPay() {

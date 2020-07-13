@@ -1,29 +1,19 @@
 package io.greenerpastures.rest.bestopportunity.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.greenerpastures.rest.bestopportunity.model.AnnualTaxesOwed;
 import io.greenerpastures.rest.bestopportunity.model.OpportunityInputs;
 import io.greenerpastures.rest.bestopportunity.model.OpportunityResults;
-import io.greenerpastures.rest.bestopportunity.model.StateCostOfLiving;
 import io.greenerpastures.rest.bestopportunity.service.BestOpportunityService;
-import io.greenerpastures.rest.bestopportunity.service.TaxesOwedService;
-import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 import org.jeasy.random.EasyRandom;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.io.PrintStream;
-import java.math.BigDecimal;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
