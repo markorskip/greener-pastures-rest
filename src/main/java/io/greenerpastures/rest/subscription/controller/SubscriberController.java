@@ -55,12 +55,12 @@ public class SubscriberController {
             repository.save(foundSubscriber);
         }
 
-        if (!foundSubscriber.getFirstName().equals(requestSubscriber.getFirstName())) {
+        if (requestSubscriber.getFirstName() != null) {
             foundSubscriber.setFirstName(requestSubscriber.getFirstName());
             repository.save(foundSubscriber);
         }
 
-        if (!foundSubscriber.getLastName().equals(requestSubscriber.getLastName())) {
+        if (requestSubscriber.getLastName() != null) {
             foundSubscriber.setLastName(requestSubscriber.getLastName());
             repository.save(foundSubscriber);
         }

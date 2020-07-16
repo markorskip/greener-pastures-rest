@@ -1,19 +1,35 @@
 ==== Database Notes:
+To see database url:
+
+    heroku config
+
+Once the database add-on has been created, Heroku will automatically populate the environment variables SPRING_DATASOURCE_URL, SPRING_DATASOURCE_USERNAME, and SPRING_DATASOURCE_PASSWORD. These environment variables should allow your Spring Boot application to connect to the database without any other configuration as long as you add a PostgreSQL JDBC driver to your dependencies like so...
 
 To see info (and row count):
-heroku pg:info
+
+    heroku pg:info
 
 To continously watch:
-watch heroku pg:info
+
+    watch heroku pg:info
 
 To see if psql is installed:
-which psql
+
+    which psql
 
 To establish a psql session with remote database:
-heroku pg:psql
+
+    heroku pg:psql
 
 To pull data to local database:
-heroku pg:pull HEROKU_POSTGRESQL_MAGENTA mylocaldb --app sushi
+
+    heroku pg:pull HEROKU_POSTGRESQL_MAGENTA mylocaldb --app sushi
 
 To push data to a remote database:
-heroku pg:push mylocaldb HEROKU_POSTGRESQL_MAGENTA --app sushi
+
+    heroku pg:push mylocaldb HEROKU_POSTGRESQL_MAGENTA --app sushi
+
+
+    \list or \l: list all databases
+    \dt: list all tables in the current database using your search_path
+    \dt *.: list all tables in the current database regardless your search_path
