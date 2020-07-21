@@ -15,7 +15,6 @@ repositories {
 }
 
 dependencies {
-
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     testCompile 'org.jeasy:easy-random-core:4.2.0'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
