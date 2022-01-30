@@ -1,4 +1,4 @@
-package io.greenerpastures.rest.bestopportunity.production;
+package io.greenerpastures.rest.bestopportunity.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.greenerpastures.rest.realcomp.RealCompensationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-08-13T13:56:15" hostname="Marks-MacBook-Pro.local" time="0.01">
+  <properties/>
+  <testcase name="testCalculateHourlyWage()" classname="io.greenerpastures.rest.realcomp.RealCompensationTest" time="0.003"/>
+  <testcase name="testCalculateRealHourlyWage()" classname="io.greenerpastures.rest.realcomp.RealCompensationTest" time="0.001"/>
+  <testcase name="testCalculateSalary()" classname="io.greenerpastures.rest.realcomp.RealCompensationTest" time="0.001"/>
+  <testcase name="testCalculateRealCompensation()" classname="io.greenerpastures.rest.realcomp.RealCompensationTest" time="0.001"/>
+  <testcase name="testEmployerCosts()" classname="io.greenerpastures.rest.realcomp.RealCompensationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

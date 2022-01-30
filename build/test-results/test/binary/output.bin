@@ -1,5 +1,0 @@
-‡08:48:09.887 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP POST https://greenpastures.herokuapp.com/calculate
-Ž08:48:09.896 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[text/plain, application/json, application/*+json, */*]
-ª08:48:09.900 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Writing [{"filing_status":"married","state":"NM","pay_rate":110000}] as "application/json"
-_08:48:10.718 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
-ƒ08:48:10.720 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [java.lang.String] as "application/json"

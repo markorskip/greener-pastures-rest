@@ -3,11 +3,10 @@ package io.greenerpastures.rest.bestopportunity.model.taxeeResponse;
 import io.greenerpastures.rest.bestopportunity.model.Annual;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
-public class TaxeeResponse implements Serializable {
+public class TaxeeResponse {
 
     private io.greenerpastures.rest.bestopportunity.model.taxeeResponse.Annual annual;
 

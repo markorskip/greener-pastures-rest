@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.greenerpastures.rest.realcomp.FringeBenefitsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-13T13:56:15" hostname="Marks-MacBook-Pro.local" time="0.02">
+  <properties/>
+  <testcase name="totalValueOfFringeBenefits()" classname="io.greenerpastures.rest.realcomp.FringeBenefitsTest" time="0.02"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
